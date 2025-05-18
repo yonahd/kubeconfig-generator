@@ -255,12 +255,6 @@ export function KubeconfigGenerator() {
       return;
     }
 
-    const permissions = selectedResources.map(r => ({
-      resource: r.name,
-      apiGroup: r.apiGroup,
-      verbs: r.selectedVerbs
-    }));
-
     try {
       const response = await fetch(`${API_BASE_URL}/api/generate-kubeconfig`, {
         method: 'POST',
