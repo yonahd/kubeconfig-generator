@@ -1,0 +1,54 @@
+frontend:
+  image:
+    repository: kubeconfig-generator-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  ingress:
+    enabled: false
+    className: ""
+    annotations: {}
+    hosts: []
+    tls: []
+  resources: {}
+  env:
+    # Backend API URL - will be set to backend service by default
+    apiBaseUrl: ""  # If empty, will be auto-generated using backend service name
+
+backend:
+  image:
+    repository: kubeconfig-generator-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 5005
+  ingress:
+    enabled: false
+    className: ""
+    annotations: {}
+    hosts: []
+    tls: []
+  resources: {}
+
+# Common settings
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: [] 

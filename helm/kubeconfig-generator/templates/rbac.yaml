@@ -1,0 +1,55 @@
+{{- if .Values.backend.serviceAccount.create -}}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Values.backend.serviceAccount.name }}
+  labels:
+    app: {{ .Release.Name }}-backend
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ .Release.Name }}-backend-role
+  labels:
+    app: {{ .Release.Name }}-backend
+rules:
+  # Allow listing and viewing namespaces
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["list", "get"]
+  # Allow managing ServiceAccounts
+  - apiGroups: [""]
+    resources: ["serviceaccounts"]
+    verbs: ["create", "get", "delete", "list"]
+  # Allow managing Roles and ClusterRoles
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["roles", "clusterroles"]
+    verbs: ["create", "get", "delete", "list"]
+  # Allow managing RoleBindings and ClusterRoleBindings
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["rolebindings", "clusterrolebindings"]
+    verbs: ["create", "get", "delete", "list"]
+  # Allow managing Secrets (for ServiceAccount tokens)
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["create", "get", "delete", "list"]
+  # Allow viewing resources that might need to be granted permissions to
+  - apiGroups: ["", "apps", "batch", "networking.k8s.io"]
+    resources: ["pods", "deployments", "services", "configmaps", "jobs", "ingresses"]
+    verbs: ["list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ .Release.Name }}-backend-rolebinding
+  labels:
+    app: {{ .Release.Name }}-backend
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.backend.serviceAccount.name }}
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ .Release.Name }}-backend-role
+  apiGroup: rbac.authorization.k8s.io
+{{- end }} 

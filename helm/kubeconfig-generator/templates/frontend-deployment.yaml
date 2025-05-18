@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "kubeconfig-generator.fullname" . }}-frontend
+  labels:
+    {{- include "kubeconfig-generator.labels" . | nindent 4 }}
+    app.kubernetes.io/component: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "kubeconfig-generator.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: frontend
+  template:
+    metadata:
+      labels:
+        {{- include "kubeconfig-generator.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            - name: VITE_API_BASE_URL
+              {{- if .Values.frontend.env.apiBaseUrl }}
+              value: {{ .Values.frontend.env.apiBaseUrl | quote }}
+              {{- else }}
+              value: "http://{{ include "kubeconfig-generator.fullname" . }}-backend:{{ .Values.backend.service.port }}"
+              {{- end }}
+          resources:
+            {{- toYaml .Values.frontend.resources | nindent 12 }} 
