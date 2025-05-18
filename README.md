@@ -2,7 +2,8 @@
 
 A modern web application for generating Kubernetes RBAC configurations and kubeconfig files with a beautiful, user-friendly interface.
 
-![Kubernetes Access Manager](https://img.shields.io/badge/Kubernetes-Access%20Manager-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![1000137286](https://github.com/user-attachments/assets/f84918dc-a582-43c9-ab15-af1bce1c09be)
+
 
 ## Features
 
