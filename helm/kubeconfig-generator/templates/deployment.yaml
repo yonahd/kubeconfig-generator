@@ -19,7 +19,10 @@ spec:
           image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
           imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+          env:
+            - name: VITE_API_BASE_URL
+              value: {{ .Values.frontend.env.apiBaseUrl | quote }}
           resources:
             {{- toYaml .Values.frontend.resources | nindent 12 }}
 ---
@@ -39,7 +42,7 @@ spec:
       labels:
         app: {{ .Release.Name }}-backend
     spec:
-      serviceAccountName: {{ .Values.backend.serviceAccount.name }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
         - name: backend
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
