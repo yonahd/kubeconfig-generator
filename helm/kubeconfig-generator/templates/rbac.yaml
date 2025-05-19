@@ -1,8 +1,8 @@
-{{- if .Values.backend.serviceAccount.create -}}
+{{- if .Values.serviceAccount.create -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ .Values.backend.serviceAccount.name }}
+  name: {{ .Values.serviceAccount.name }}
   labels:
     app: {{ .Release.Name }}-backend
 ---
@@ -46,7 +46,7 @@ metadata:
     app: {{ .Release.Name }}-backend
 subjects:
 - kind: ServiceAccount
-  name: {{ .Values.backend.serviceAccount.name }}
+  name: {{ .Values.serviceAccount.name }}
   namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
