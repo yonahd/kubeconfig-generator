@@ -9,8 +9,8 @@ on:
 
 env:
   REGISTRY: docker.io
-  FRONTEND_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/kubeconfig-generator-frontend
-  BACKEND_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/kubeconfig-generator-backend
+  FRONTEND_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/kubernetes-access-manager-frontend
+  BACKEND_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/kubernetes-access-manager-backend
 
 jobs:
   build-and-push:
