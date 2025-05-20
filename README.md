@@ -1,12 +1,21 @@
-# Kubernetes Access Manager
-
-A modern web application for generating Kubernetes RBAC configurations and kubeconfig files with a beautiful, user-friendly interface.
-
-![Kubernetes Access Manager](https://img.shields.io/badge/Kubernetes-Access%20Manager-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)
 ![Node.js Version](https://img.shields.io/badge/Node.js-18%2B-green?style=flat-square&logo=nodedotjs)
 ![Docker Pulls Frontend](https://img.shields.io/docker/pulls/yonahdissen/kubernetes-access-manager-frontend?style=flat-square&logo=docker)
 ![Docker Pulls Backend](https://img.shields.io/docker/pulls/yonahdissen/kubernetes-access-manager-backend?style=flat-square&logo=docker)
+# Kubernetes Access Manager
+
+A modern web application for generating Kubernetes RBAC configurations and kubeconfig files with a beautiful, user-friendly interface.
+
+## Screenshots
+
+![Kubernetes Access Manager Screenshot](docs/screenshots/main.png)
+
+The application provides an intuitive interface for managing Kubernetes access:
+
+- **Role Generator**: Create fine-grained RBAC roles with specific permissions
+- **Kubeconfig Generator**: Generate kubeconfig files for service accounts
+- **Resource Selection**: Choose from a comprehensive list of Kubernetes resources
+- **Permission Management**: Select specific verbs for each resource
 
 ## Features
 
