@@ -2,8 +2,11 @@
 
 A modern web application for generating Kubernetes RBAC configurations and kubeconfig files with a beautiful, user-friendly interface.
 
-![1000137286](https://github.com/user-attachments/assets/f84918dc-a582-43c9-ab15-af1bce1c09be)
-
+![Kubernetes Access Manager](https://img.shields.io/badge/Kubernetes-Access%20Manager-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)
+![Node.js Version](https://img.shields.io/badge/Node.js-18%2B-green?style=flat-square&logo=nodedotjs)
+![Docker Pulls Frontend](https://img.shields.io/docker/pulls/yonahdissen/kubernetes-access-manager-frontend?style=flat-square&logo=docker)
+![Docker Pulls Backend](https://img.shields.io/docker/pulls/yonahdissen/kubernetes-access-manager-backend?style=flat-square&logo=docker)
 
 ## Features
 
@@ -32,8 +35,8 @@ A modern web application for generating Kubernetes RBAC configurations and kubec
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/kubeconfig-generator.git
-cd kubeconfig-generator
+git clone https://github.com/yourusername/kubernetes-access-manager.git
+cd kubernetes-access-manager
 ```
 
 2. Start the development environment:
@@ -82,8 +85,8 @@ Build and run the containers:
 
 ```bash
 # Build images
-docker build -t k8s-access-manager-frontend ./frontend
-docker build -t k8s-access-manager-backend ./backend
+docker build -t kubernetes-access-manager-frontend ./frontend
+docker build -t kubernetes-access-manager-backend ./backend
 
 # Run containers
 docker-compose up -d
@@ -94,7 +97,7 @@ docker-compose up -d
 The application can be deployed to Kubernetes using the provided Helm chart:
 
 ```bash
-helm install kubeconfig-generator ./charts/kubeconfig-generator
+helm install kubernetes-access-manager ./helm/kubernetes-access-manager
 ```
 
 ## Contributing
@@ -107,7 +110,7 @@ helm install kubeconfig-generator ./charts/kubeconfig-generator
 
 ## License
 
-This project is licensed under the GNU General Public License (GPL) v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
