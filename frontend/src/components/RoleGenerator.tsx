@@ -181,7 +181,7 @@ const INITIAL_RESOURCES: Resource[] = [
   }
 ];
 
-export default function RoleGenerator() {
+export function RoleGenerator() {
   const [resources, setResources] = useState<Resource[]>(INITIAL_RESOURCES);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -307,7 +307,18 @@ export default function RoleGenerator() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-            <h1 className="text-2xl font-bold text-white text-center">Role Generator</h1>
+            <div className="flex items-center justify-between">
+              <button
+                onClick={() => window.location.reload()}
+                className="text-white hover:text-blue-100 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              </button>
+              <h1 className="text-2xl font-bold text-white text-center flex-1">Role Generator</h1>
+              <div className="w-6"></div> {/* Spacer for alignment */}
+            </div>
           </div>
           
           <div className="p-6">
