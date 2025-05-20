@@ -94,7 +94,7 @@ docker-compose up -d
 The application can be deployed to Kubernetes using the provided Helm chart:
 
 ```bash
-helm install k8s-access-manager ./charts/k8s-access-manager
+helm install kubeconfig-generator ./charts/kubeconfig-generator
 ```
 
 ## Contributing
