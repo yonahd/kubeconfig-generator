@@ -1,5 +1,5 @@
 {
-  "name": "kubeconfig-generator-frontend",
+  "name": "kubernetes-access-manager-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
