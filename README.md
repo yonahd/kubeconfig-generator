@@ -18,7 +18,8 @@ A modern web application for generating Kubernetes RBAC configurations and kubec
 
 
 ---
-The application provides an intuitive interface for managing Kubernetes access:
+The application provides an intuitive .
+interface for managing Kubernetes access:
 
 - **Role Generator**: Create fine-grained RBAC roles with specific permissions
 - **Kubeconfig Generator**: Generate kubeconfig files for service accounts
