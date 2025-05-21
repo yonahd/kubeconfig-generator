@@ -6,11 +6,20 @@
 
 A modern web application for generating Kubernetes RBAC configurations and kubeconfig files with a beautiful, user-friendly interface.
 
-## Screenshots
+## Flow
 
+#### Step 1: Choose what you want to generate(Kubeconfig/Role)
 ![Kubernetes Access Manager Screenshot](docs/screenshots/main.png)
 
-The application provides an intuitive interface for managing Kubernetes access:
+#### Step 2: Choose the exact permissions you want on whatever resources you need
+![Kubernetes Access Manager Roles](docs/screenshots/role-form.png)
+
+#### Step 3: Press Generate
+
+
+---
+The application provides an intuitive .
+interface for managing Kubernetes access:
 
 - **Role Generator**: Create fine-grained RBAC roles with specific permissions
 - **Kubeconfig Generator**: Generate kubeconfig files for service accounts
